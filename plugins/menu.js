@@ -30,7 +30,7 @@ let tags = {
 }
 const defaultMenu = {
   before: `
-╭─「 %me 」
+╭─「 Bot 」
 │ Hai, %name!
 │
 │ Tersisa *%limit Limit*
@@ -44,8 +44,10 @@ const defaultMenu = {
 │
 │ Uptime: *%uptime (%muptime)*
 │ Database: %rtotalreg of %totalreg
-│ Github:
-│ %github
+│ 
+│    THANK TO :)
+│   Centauri
+│   Badut Ceria
 ╰────
 %readmore`.trimStart(),
   header: '╭─「 %category 」',
@@ -166,6 +168,7 @@ handler.mods = false
 handler.premium = false
 handler.group = false
 handler.private = false
+handler.register = true
 
 handler.admin = false
 handler.botAdmin = false

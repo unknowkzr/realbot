@@ -54,5 +54,6 @@ ${[
 }
 handler.help = ['semoji [tipe] <emoji>']
 handler.tags = ['sticker']
+handler.premium = true
 handler.command = /^s?emo(ji)?$/i
 module.exports = handler

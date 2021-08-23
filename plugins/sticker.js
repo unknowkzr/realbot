@@ -26,11 +26,12 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (stiker) conn.sendMessage(m.chat, stiker, MessageType.sticker, {
       quoted: m
     })
-    else throw 'Conversion failed'
+    else throw 'Conversion failed (Gagal sistem)'
   }
 }
 handler.help = ['stiker (caption|reply media)', 'stiker <url>', 'stikergif (caption|reply media)', 'stikergif <url>']
 handler.tags = ['sticker']
+handler.register = true
 handler.command = /^s(tic?ker)?(gif)?(wm)?$/i
 
 module.exports = handler

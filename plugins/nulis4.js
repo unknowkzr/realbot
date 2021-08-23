@@ -3,23 +3,21 @@ let path = require('path')
 let { spawn } = require('child_process')
 
 // Font By MFarelS:V
-let fontPath = 'src/font/Zahraaa.ttf'
-let handler = async (m, { conn, args }) => {
-  if (!global.support.convert &&
-      !global.support.magick &&
-      !global.support.gm) return handler.disabled = true // Disable if doesnt support
-  let inputPath = 'src/kertas/magernulis1.jpg'
+let fontPath = 'src/font/Futura Book font.ttf'
+let handler  = async (m, { conn, args }) => {
+  let inputPath ='src/kertas/magernulis1.jpg'
+  let outputPath = 'tmp/hasil.jpg'
   let d = new Date
   let tgl = d.toLocaleDateString('id-Id')
   let hari = d.toLocaleDateString('id-Id', { weekday: 'long' })
   let teks = args.join` `
   // conn.reply(m.chat, util.format({fontPath, inputPath, outputPath, tgl, hari, teks}), m)
-  let bufs = []
-  const [_spawnprocess, ..._spawnargs] = [...(global.support.gm ? ['gm'] : global.support.magick ? ['magick'] : []),
-    'convert',
+  spawn('convert', [
     inputPath,
     '-font',
-    fontPath,
+    fontPath, 
+    '-fill', 
+    'blue', 
     '-size',
     '1024x784',
     '-pointsize',
@@ -31,6 +29,8 @@ let handler = async (m, { conn, args }) => {
     hari,
     '-font',
     fontPath,
+    '-fill', 
+    'blue', 
     '-size',
     '1024x784',
     '-pointsize',
@@ -41,7 +41,9 @@ let handler = async (m, { conn, args }) => {
     '+806+102',
     tgl,
     '-font',
-    fontPath,
+    fontPath, 
+    '-fill', 
+    'blue', 
     '-size',
     '1024x784',
     '-pointsize',
@@ -51,25 +53,21 @@ let handler = async (m, { conn, args }) => {
     '-annotate',
     '+344+142',
     teks,
-    'jpg:-'
-  ]
-  spawn(_spawnprocess, _spawnargs)
-    .on('error', e => conn.reply(m.chat, util.format(e), m))
-    .on('close', () => {
-      conn.sendFile(m.chat, Buffer.concat(bufs), 'nulis.jpg', 'Hati² ketahuan:v BY Bot aq', m)
-    })
-    .stdout.on('data', chunk => bufs.push(chunk))
+    outputPath
+  ])
+  .on('error', e => conn.reply(m.chat, util.format(e), m))
+  .on('exit', () => {
+    conn.sendFile(m.chat, outputPath, 'nulis.jpg', '*Neh by bot aq :)*', m)
+  })
 }
-handler.help = ['n'].map(v => v + 'ulis <teks>')
-handler.tags = ['nulis']
-handler.command = /^nulis$/i
+handler.help = ['n'].map(v => v + 'ulis4 <teks>')
+handler.tags = ['nulis4']
+handler.command = /^nulis2$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
-handler.group = false
+handler.group = true
 handler.private = false
-handler.register = true
-handler.limit = true
 
 handler.admin = false
 handler.botAdmin = false
@@ -78,5 +76,5 @@ handler.fail = null
 
 module.exports = handler
 
-// BY MFARELS NJEENK
+// BY MFARELS
 // https://GitHub.com/MFarelS/

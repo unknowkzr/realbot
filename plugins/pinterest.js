@@ -1,13 +1,11 @@
 let fetch = require('node-fetch')
-let handler = async(m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `Contoh: ${usedPrefix + command} minecraft`
-  let res = await fetch(global.API('zeks', '/api/pinimg', {
-    q: encodeURI(text)
-  }, 'apikey'))
-  if (!res.ok) throw await `${res.status} ${res.statusText}`
+let handler = async(m, { conn, text }) => {
+  let res = await fetch(global.API('https://fdciabdul.tech', '/api/pinterest', {
+    keyword : encodeURI(text)
+  }))
+  if (!res.ok) throw await res.text()
   let json = await res.json()
-  if (!json.status) throw json
-  let pint = json.data[Math.floor(Math.random() * json.data.length)];
+  let pint = json[Math.floor(Math.random() * json.length)];
   conn.sendFile(m.chat, pint, '', `
 *Hasil pencarian*
 ${text}
@@ -16,5 +14,5 @@ ${text}
 handler.help = ['pinterest <keyword>']
 handler.tags = ['internet']
 handler.command = /^(pinterest)$/i
-
+//MADE IN ERPAN 1140 BERKOLABORASI DENGAN BTS dan Ftwrr
 module.exports = handler
