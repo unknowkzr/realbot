@@ -1,4 +1,4 @@
-global.owner = ['994407430641', '621299878753'] // Put your number here
+global.owner = ['6281299878753', '6281334177340'] // Put your number here
 global.mods = ['6281299878753'] // Want some help?
 global.prems = ['6281299878753'] // Premium user has unlimited limit
 global.APIs = { // API Prefix
@@ -7,12 +7,11 @@ global.APIs = { // API Prefix
   xteam: 'https://api.xteam.xyz',
   zahir: 'https://zahirr-web.herokuapp.com',
   zeks: 'https://api.zeks.xyz',
-  pencarikode: 'https://pencarikode.xyz',
-  LeysCoder: 'https://leyscoders-api.herokuapp.com'
+  pencarikode: 'https://pencarikode.xyz'
 }
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
-  'https://api.xteam.xyz': 'd90a9e986e18778b',
+  'https://api.xteam.xyz': '4240e0f7f7fc23f0',
   'https://zahirr-web.herokuapp.com': 'zahirgans',
   'https://api.zeks.xyz': 'apivinz',
   'https://pencarikode.xyz': 'pais',
@@ -20,10 +19,10 @@ global.APIKeys = { // APIKey Here
 }
 
 // Sticker WM
-global.packname = ':)'
-global.author = 'Bot Lightweight'
+global.packname = 'Bot Java'
+global.author = '🗿🤙'
 
-global.multiplier = 69 // The higher, The harder levelup
+global.multiplier = 400 // The higher, The harder levelup
 
 let fs = require('fs')
 let chalk = require('chalk')
