@@ -1,10 +1,10 @@
 let handler  = async (m, { conn, text }) => {
-  let chats = conn.chats.all().filter(v => !v.read_only && v.message && !v.archive).map(v => v.jid)
-  let cc = conn.serializeM(text ? m : m.quoted ? await m.getQuotedObj() : false || m)
-  let teks = text ? text : cc.text
+  let chats = conn.chats.all().filter(v => !v.read_only && v.message).map(v => v.jid)
+  let content = (/bc|broadcast/i.test(text) ? text : text + '\n' + readMore + '「 ' + conn.getName(conn.user.jid) + ' Broadcast 」')
+  for (let id of chats) conn.sendMessage(id, content, m.mtype, m.msg.contextInfo ? {
+    contextInfo: m.msg.contextInfo
+  } : {})
   conn.reply(m.chat, `_Mengirim pesan broadcast ke ${chats.length} chat_`, m)
-  for (let id of chats) await conn.copyNForward(id, conn.cMod(m.chat, cc, /bc|broadcast/i.test(teks) ? teks : teks + '\n' + readMore + '「 All Chat Broadcast 」\n' + randomID(32)), true).catch(_=>_)
-  m.reply('Selesai Broadcast All Chat :)')
 }
 handler.help = ['broadcast','bc'].map(v => v + ' <teks>')
 handler.tags = ['owner']
@@ -25,4 +25,3 @@ module.exports = handler
 const more = String.fromCharCode(8206)
 const readMore = more.repeat(4001)
 
-const randomID = length => require('crypto').randomBytes(Math.ceil(length * .5)).toString('hex').slice(0, length)

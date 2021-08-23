@@ -20,6 +20,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['attp2 <teks>']
 handler.tags = ['sticker']
+handler.register = true
 handler.command = /^(attp2)$/i
 handler.limit = true
 //Made By Anshul

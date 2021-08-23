@@ -23,7 +23,7 @@ ${list}
 │ 
 └────
 
-_by Ariffb_`, m, { contextInfo: { mentionedJid: absen } })
+_by Bot aq_`, m, { contextInfo: { mentionedJid: absen } })
 }
 handler.help = ['cekabsen']
 handler.tags = ['absen']

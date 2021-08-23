@@ -7,6 +7,7 @@ let handler = async function (m, { text }) {
 }
 handler.help = ['brainly <soal>']
 handler.tags = ['internet']
+handler.register = true
 
 handler.command = /^brainly$/i
 

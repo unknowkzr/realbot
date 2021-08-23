@@ -4,6 +4,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['attp <teks>']
 handler.tags = ['sticker']
+handler.register = true
 
 handler.command = /^attp$/i
 
