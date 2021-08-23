@@ -21,5 +21,6 @@ handler.help = ['ttpdark <teks>']
 handler.tags = ['sticker']
 handler.command = /^(ttpdark)$/i
 handler.limit = true
+handler.register = true
 //Made By Anshul
 module.exports = handler

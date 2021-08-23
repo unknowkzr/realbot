@@ -11,6 +11,7 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['ttp <teks>']
 handler.tags = ['sticker']
+handler.register = true
 
 handler.command = /^ttp$/i
 

@@ -18,6 +18,8 @@ let handler = async (m, { conn, text }) => {
 }
 handler.help = ['wm <packname>|<author>']
 handler.tags = ['sticker']
+handler.register = true
+handler.limit = true
 handler.command = /^wm$/i
 
 module.exports = handler

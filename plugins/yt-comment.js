@@ -9,6 +9,7 @@ let handler = async (m, { conn, text }) => {
 
 handler.help = ['ytcomment <comment>']
 handler.tags = ['maker']
+handler.register = true
 
 handler.command = /^(ytcomment)$/i
 

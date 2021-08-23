@@ -21,5 +21,6 @@ handler.help = ['ttp2 <teks>']
 handler.tags = ['sticker']
 handler.command = /^(ttp2)$/i
 handler.limit = true
+handler.register = true
 //MadeByAnshul
 module.exports = handler
